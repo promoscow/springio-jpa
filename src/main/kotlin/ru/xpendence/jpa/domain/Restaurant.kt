@@ -22,10 +22,7 @@ class Restaurant(
     var name: String? = null,
 
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
-    val dishes: Set<Dish> = hashSetOf(),
-
-    @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
-    val orders: Set<Order> = hashSetOf()
+    val dishes: Set<Dish> = hashSetOf()
 ) {
 
     companion object {

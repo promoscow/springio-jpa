@@ -29,15 +29,15 @@ class Order(
     val user: User? = null,
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.DETACH])
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    var restaurant: Restaurant? = null
+    @JoinColumn(name = "dish_id", nullable = false)
+    var dish: Dish? = null
 ) {
 
     companion object {
 
         fun enrichForUpdate(forUpdate: Order, stored: Order) {
             stored.date = LocalDate.now()
-            stored.restaurant = forUpdate.restaurant
+            stored.dish = forUpdate.dish
         }
     }
 }
