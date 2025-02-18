@@ -25,11 +25,11 @@ class Order(
     var date: LocalDate? = null,
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.DETACH])
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     val user: User? = null,
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.DETACH])
-    @JoinColumn(name = "dish_id", nullable = false)
+    @JoinColumn(name = "dish_id", nullable = true)
     var dish: Dish? = null
 ) {
 

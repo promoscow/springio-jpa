@@ -1,5 +1,6 @@
 package ru.xpendence.jpa.domain
 
+import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
@@ -21,7 +22,7 @@ class Restaurant(
     @Column(name = "name")
     var name: String? = null,
 
-    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER, cascade = [CascadeType.ALL], orphanRemoval = true)
     val dishes: Set<Dish> = hashSetOf()
 ) {
 
