@@ -26,13 +26,13 @@ class User(
     @Column(name = "password")
     var password: String? = null,
 
-    @ManyToMany(cascade = [CascadeType.DETACH], fetch = FetchType.EAGER)
+    @ManyToMany(cascade = [CascadeType.DETACH], fetch = FetchType.LAZY)
     @JoinTable(
         name = "users_roles",
         joinColumns = [JoinColumn(name = "user_id")],
         inverseJoinColumns = [JoinColumn(name = "role_id")]
     )
-    val roles: List<Role> = listOf()
+    val roles: Set<Role> = setOf()
 ) {
 
     companion object {

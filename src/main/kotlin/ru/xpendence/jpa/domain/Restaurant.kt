@@ -22,8 +22,8 @@ class Restaurant(
     @Column(name = "name")
     var name: String? = null,
 
-    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER, cascade = [CascadeType.ALL], orphanRemoval = true)
-    val dishes: Set<Dish> = hashSetOf()
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
+    val dishes: List<Dish> = listOf()
 ) {
 
     companion object {

@@ -38,8 +38,8 @@ class Dish(
     @JoinColumn(name = "restaurant_id", nullable = false)
     val restaurant: Restaurant? = null,
 
-    @OneToMany(mappedBy = "dish", fetch = FetchType.EAGER, cascade = [CascadeType.ALL], orphanRemoval = true)
-    val orders: Set<Order> = setOf()
+    @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
+    val orders: List<Order> = listOf()
 ) {
 
     companion object {
