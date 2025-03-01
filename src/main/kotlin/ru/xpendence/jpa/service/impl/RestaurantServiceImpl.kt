@@ -23,5 +23,6 @@ class RestaurantServiceImpl(
                     .flatMap { it!!.roles }
                     .any { it.name == RoleType.ADMIN }
             }
+            .sortedBy { it.name }
             .map { it!!.name!! }
 }

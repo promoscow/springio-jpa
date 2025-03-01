@@ -30,11 +30,6 @@ class OrderRepositoryTest : JpaApplicationTests() {
     }
 
     @Test
-    fun update() {
-
-    }
-
-    @Test
     @DisplayName("updateOrder(): пытаемся обновить заказ")
     fun updateOrder() {
         val user = User(

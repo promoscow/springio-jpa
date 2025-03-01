@@ -11,5 +11,6 @@ class DishServiceImpl(
     private val repository: DishRepository
 ) : DishService {
 
-    override fun get(id: UUID): Dish = repository.findDishById(id)
+    override fun get(id: UUID): Dish =
+        repository.findById(id).orElseThrow { IllegalStateException("Dish not found by id: $id") }
 }

@@ -6,7 +6,6 @@ import java.util.UUID
 
 interface DishRepository : JpaRepository<Dish, UUID> {
 
-    fun findDishById(id: UUID): Dish
 
     fun findDishByName(name: String): Dish
 }
