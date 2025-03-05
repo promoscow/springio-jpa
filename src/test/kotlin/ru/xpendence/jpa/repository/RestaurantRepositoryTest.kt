@@ -16,7 +16,8 @@ class RestaurantRepositoryTest : JpaApplicationTests() {
     @DisplayName("update(): ничего не обновляет при наличии транзакции")
     @Transactional
     fun update() {
-        val restaurant = repository.findById(UUID.fromString("3367ca7f-13a2-439b-925d-5fd479f33ab4")).get()
+        val id = UUID.fromString("3367ca7f-13a2-439b-925d-5fd479f33ab4")
+        val restaurant = repository.findById(id).get()
         restaurant.name = "${restaurant.name} ${kotlin.random.Random.nextInt(100)}"
         repository.save(restaurant)
     }
